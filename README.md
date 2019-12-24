@@ -6,7 +6,7 @@ A Pytorch implementation of AAAI-2020 oral paper:
 
 ## Code is coming soon
 
-The authors are struggling with final exams... But we will make our code public untill the end of December. Mary Christmas!
+The authors are struggling with final exams... But we will make our code public until the end of December. Merry Christmas!
 
 ## Citation
 
@@ -20,3 +20,5 @@ The authors are struggling with final exams... But we will make our code public 
 }
 ```
 
+## Acknowledgments
+[fastNLP](https://github.com/fastnlp/fastNLP)
