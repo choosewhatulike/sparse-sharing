@@ -2,7 +2,9 @@
 
 This is a Pytorch implementation for [Learning Sparse Sharing Architectures for Multiple Tasks](https://arxiv.org/pdf/1911.05034.pdf), accepted by AAAI 2020 (Oral). 
 
+<p align="center">
 <img src="model.png" width="500" align=center />
+</p>
 
 Illustration of our approach to learn sparse sharing architectures. Gray squares are the parameters of a base network. Orange squares represent the shared parameters, while blue and green ones represent private parameters of task 1 and task 2 respectively.
 
