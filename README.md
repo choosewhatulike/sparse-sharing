@@ -1,8 +1,10 @@
 # Learning Sparse Sharing Architectures for Multiple Tasks
 
-A Pytorch implementation of AAAI-2020 oral paper:
+This is a Pytorch implementation for [Learning Sparse Sharing Architectures for Multiple Tasks](https://arxiv.org/pdf/1911.05034.pdf), accepted by AAAI 2020 (Oral). 
 
-[Learning Sparse Sharing Architectures for Multiple Tasks](https://arxiv.org/pdf/1911.05034.pdf)
+<img src="model.png" width="500" align=center />
+
+Illustration of our approach to learn sparse sharing architectures. Gray squares are the parameters of a base network. Orange squares represent the shared parameters, while blue and green ones represent private parameters of task 1 and task 2 respectively.
 
 ## Requirements
 
@@ -40,7 +42,7 @@ Suppose we want to do experiments on `conll2003` dataset,
 we can first generating subsets by running:
 ```shell script
 bash run_conll03.sh single
-```  
+```
 We can also generate subsets with MTL warmup, by runing:
 ```shell script
 bash run_conll03.sh single /path/to/mtl-checkpoints
@@ -53,7 +55,7 @@ where each number represents the number of pruning, `#pruning`.
 After editing the numbers, we run:
 ```shell script
 bash prepare-masks.sh conll03
-```  
+```
 to prepare the masks and initial checkpoints for multi-task training.
 
 #### MTL training
@@ -70,7 +72,7 @@ When the training finished, the model will be evaluated on the test sets automat
 #### More
 You can also directly run the python file `train_single.py` and `train_mtl.py` with different arguments to gain more flexibility.
 And use the argument `-h` to see the full arguments descriptions.
-  
+
 ## Citation
 
 ```
