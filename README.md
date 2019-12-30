@@ -14,18 +14,18 @@ Illustration of our approach to learn sparse sharing architectures. Gray squares
 - fastNLP == 0.5.0
 
 ## Data
-There are three Data settings: 
+There are three experiment settings in our original paper: 
 - `conll03`: Conll2003 (POS + Chunk + NER)
 - `ontonotes`: OntoNotes 5.0 (POS + Chunk + NER)
 - `ptb`: PTB (POS) + Conll2000 (Chunk) + Conll2003 (NER)
 
-Currently we only support to preprocess `conll03` & `ptb` datasets.
+In this instruction, we give an example to reproduce the experiment on `conll03`.
 
-To process the dataset (suppose `ptb`), run the following code.
+To process the dataset, run the following code.
 And the processed data will be saved at `./data` folder.
 ```shell script
 python prepare-data.py \
-  --type ptb \
+  --type conll03 \
   --pos /path/to/pos \
   --chunk /path/to/chunk \
   --ner /path/to/ner
@@ -33,35 +33,33 @@ python prepare-data.py \
 
 
 ## Trainig
-The experiments flow of Sparse Sharing is a bit complicated.
-There are two kinds of training in our experiments.
+There are two kinds of training in our experiments:
 
 - `single`: Learning sparse sharing architecture, generating subsets for each task.
 - `mtl`: Training subsets in parallel.
 
 #### Single task pruning
-Suppose we want to do experiments on `conll2003` dataset, 
-we can first generating subsets by running:
+The first step is to generate subnets for each task. This is done by running:
 ```shell script
 bash run_conll03.sh single
 ```
-We can also generate subsets with MTL warmup, by runing:
+We suggest generate subsets with Multi-Task Warmup, by runing:
 ```shell script
 bash run_conll03.sh single /path/to/mtl-checkpoints
 ```
 
 The generated subsets are stored in the folders named after numbers under `./exp/conll03/single/cp/`,
 The subsets' are named after `[#pruning]_[nonzero param percent].th`.
-We can choose different subsets for each task by editing the numbers `MASK_LIST` in the script `prepare-masks.sh`,
+You can choose different subsets for each task by editing the numbers `MASK_LIST` in the script `prepare-masks.sh`,
 where each number represents the number of pruning, `#pruning`.
-After editing the numbers, we run:
+After editing the numbers, run:
 ```shell script
 bash prepare-masks.sh conll03
 ```
 to prepare the masks and initial checkpoints for multi-task training.
 
 #### MTL training
-Then, we run the script for multi-task training with different subsets in parallel:
+Run the following script for multi-task training with different subsets in parallel:
 ```shell script
 bash run_conll03.sh mtl
 ```
