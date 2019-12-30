@@ -23,6 +23,7 @@ In this instruction, we give an example to reproduce the experiment on `conll03`
 
 To process the dataset, run the following code.
 And the processed data will be saved at `./data` folder.
+
 ```shell script
 python prepare-data.py \
   --type conll03 \
@@ -32,7 +33,7 @@ python prepare-data.py \
 ```
 
 
-## Trainig
+## Training
 There are two kinds of training in our experiments:
 
 - `single`: Learning sparse sharing architecture, generating subsets for each task.
@@ -43,7 +44,7 @@ The first step is to generate subnets for each task. This is done by running:
 ```shell script
 bash run_conll03.sh single
 ```
-We suggest generate subsets with Multi-Task Warmup, by runing:
+We suggest generate subsets with Multi-Task Warmup, by running:
 ```shell script
 bash run_conll03.sh single /path/to/mtl-checkpoints
 ```
@@ -71,7 +72,7 @@ When the training finished, the model will be evaluated on the test sets automat
 
 #### More
 You can also directly run the python file `train_single.py` and `train_mtl.py` with different arguments to gain more flexibility.
-And use the argument `-h` to see the full arguments descriptions.
+And please use the argument `-h` to see the full arguments descriptions.
 
 ## Citation
 
