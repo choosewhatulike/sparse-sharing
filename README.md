@@ -21,6 +21,9 @@ There are three experiment settings in our original paper:
 
 In this instruction, we give an example to reproduce the experiment on `conll03`.
 
+**UPDATE:** We provide the dataset **Conll03(POS + Chunk + NER) and PTB(POS)** for reproducibility of our experiments,
+stored in `./data` folder. 
+
 To process the dataset, run the following code.
 And the processed data will be saved at `./data` folder.
 
